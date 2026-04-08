@@ -1,0 +1,28 @@
+name: Weekly Intelligence Update
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs at 00:00 every Monday
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Generate Intelligence
+        run: node generate_intelligence.mjs
+        
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/data/news.json
+          git commit -m "Auto-update Intelligence Desk [skip ci]" || echo "No changes to commit"
+          git push

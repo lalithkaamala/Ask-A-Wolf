@@ -1,0 +1,97 @@
+[
+    {
+        "id": "hist-1",
+        "period": "37 Million Years Ago",
+        "event": "Dawn of the Canids: Hesperocyon",
+        "description": "The first true canids emerged in North America. These fox-like creatures were the ancestors of all modern wolves, coyotes, and foxes. They were agile predators with semi-retractable claws, bridging the gap between ancient carnivores and modern hunters.",
+        "type": "Evolution",
+        "links": [
+            {
+                "label": "The Origin of Dogs",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0210800"
+            },
+            {
+                "label": "Canid Phylogeny Deep Dive",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0264516"
+            }
+        ]
+    },
+    {
+        "id": "hist-2",
+        "period": "1.5 Million Years Ago",
+        "event": "Speciation: Wolves & Coyotes",
+        "description": "A pivotal divergence occurred. Wolves adapted for larger prey and pack hunting, while coyotes evolved as opportunistic generalists. This divergence allowed both species to colonize nearly every niche in North America.",
+        "type": "Evolution",
+        "links": [
+            {
+                "label": "Wolf vs Coyote Genomics",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142601"
+            }
+        ]
+    },
+    {
+        "id": "hist-3",
+        "period": "1800 - 1920",
+        "event": "The War on Predators",
+        "description": "As the frontier expanded, federal and state governments initiated massive eradication programs. Wolves and coyotes were viewed as 'unholy' pests. Millions were killed through trapping, poisoning (strychnine), and aerial hunting, pushing the gray wolf to the brink of extinction in the lower 48 states.",
+        "type": "Human Impact",
+        "links": [
+            {
+                "label": "History of Predator Control",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146055"
+            }
+        ]
+    },
+    {
+        "id": "hist-4",
+        "period": "1940s",
+        "event": "Aldo Leopold's 'Thinking Like a Mountain'",
+        "description": "Conservationist Aldo Leopold wrote his seminal essay after shooting a wolf and seeing the 'green fire' die in her eyes. This moment marked the birth of modern ecology, as he realized that without wolves, deer populations explode and destroy the mountain's vegetation.",
+        "type": "Culture",
+        "links": [
+            {
+                "label": "Trophic Cascades Explained",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0294191"
+            }
+        ]
+    },
+    {
+        "id": "hist-5",
+        "period": "1974",
+        "event": "The Shield of the ESA",
+        "description": "The Gray Wolf was officially listed under the Endangered Species Act. This legal protection halted all state-sanctioned killing and mandated that the federal government work toward the species' recovery, setting the stage for one of the greatest conservation battles in history.",
+        "type": "Policy",
+        "links": [
+            {
+                "label": "ESA Success Stories",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000001"
+            }
+        ]
+    },
+    {
+        "id": "hist-6",
+        "period": "1995",
+        "event": "The Yellowstone Miracle",
+        "description": "Canid biology met massive public visibility when 14 gray wolves from Alberta were released into Yellowstone. The wolves completely reshaped the ecosystem, an event scientists call a 'Trophic Cascade.' They brought back aspen trees, stabilized riverbanks, and increased biodiversity.",
+        "type": "Conservation",
+        "links": [
+            {
+                "label": "Yellowstone Wolf Report",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0116639"
+            }
+        ]
+    },
+    {
+        "id": "hist-7",
+        "period": "2020 - Present",
+        "event": "The Urban Wolf: Coyote Expansion",
+        "description": "While wolves were being reintroduced, coyotes were doing something miraculous: self-expanding. Coyotes have now reached every major US city, from Los Angeles to New York, demonstrating a level of intelligence and adaptability that challenges all previous biological assumptions.",
+        "type": "Discovery",
+        "links": [
+            {
+                "label": "Urban Coyote Adaptability",
+                "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000002"
+            }
+        ]
+    }
+]
