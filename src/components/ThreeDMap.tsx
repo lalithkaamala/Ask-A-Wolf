@@ -30,7 +30,6 @@ const PulsingPoint = ({ position, color, label }: { position: [number, number, n
           color="white"
           anchorX="center"
           anchorY="middle"
-          font="https://fonts.gstatic.com/s/outfit/v11/Q_3_9S6iX6_9S_S1_X_X.woff"
         >
           {label}
         </Text>
@@ -96,10 +95,12 @@ export const ThreeDMap: React.FC = () => {
   return (
     <div style={{ width: '100%', height: '400px', background: 'radial-gradient(circle at center, #1a2238 0%, #0a0e17 100%)', borderRadius: '16px', overflow: 'hidden' }}>
       <Canvas camera={{ position: [0, 0, 2.5], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <Globe />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        <React.Suspense fallback={null}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <Globe />
+          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        </React.Suspense>
       </Canvas>
       <div style={{ position: 'absolute', bottom: '16px', left: '16px', color: 'var(--text-muted)', fontSize: '0.7rem', fontFamily: 'monospace', pointerEvents: 'none' }}>
         SYSTEM_3D_RENDER: ACTIVE // ORBITAL_PHASE: 14.2
