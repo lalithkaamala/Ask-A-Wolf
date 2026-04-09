@@ -1,6 +1,6 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars, Text } from '@react-three/drei';
+import { OrbitControls, Sphere, Float, Stars, Text, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
 const PulsingPoint = ({ position, color, label }: { position: [number, number, number]; color: string; label: string }) => {
@@ -38,8 +38,37 @@ const PulsingPoint = ({ position, color, label }: { position: [number, number, n
   );
 };
 
+const Clouds = () => {
+  const cloudsRef = useRef<THREE.Mesh>(null);
+  const cloudMap = useTexture('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png');
+
+  useFrame(() => {
+    if (cloudsRef.current) {
+      cloudsRef.current.rotation.y += 0.0015;
+    }
+  });
+
+  return (
+    <Sphere ref={cloudsRef} args={[1.02, 64, 64]}>
+      <meshStandardMaterial
+        map={cloudMap}
+        transparent
+        opacity={0.4}
+        depthWrite={false}
+      />
+    </Sphere>
+  );
+};
+
 const Globe = () => {
   const globeRef = useRef<THREE.Mesh>(null);
+  
+  // High-fidelity Earth textures
+  const [colorMap, normalMap, specularMap] = useTexture([
+    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg',
+    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_normal_2048.jpg',
+    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg',
+  ]);
 
   useFrame(() => {
     if (globeRef.current) {
@@ -62,16 +91,16 @@ const Globe = () => {
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       
       <Sphere ref={globeRef} args={[1, 64, 64]}>
-        <MeshDistortMaterial
-          color="#131b2c"
-          roughness={0.1}
-          metalness={0.9}
-          distort={0.1}
-          speed={2}
-          transparent
-          opacity={0.8}
+        <meshStandardMaterial
+          map={colorMap}
+          normalMap={normalMap}
+          specularMap={specularMap}
+          roughness={0.7}
+          metalness={0.2}
         />
       </Sphere>
+
+      <Clouds />
 
       {/* Atmospheric Glow */}
       <Sphere args={[1.1, 64, 64]}>
@@ -93,11 +122,12 @@ const Globe = () => {
 
 export const ThreeDMap: React.FC = () => {
   return (
-    <div style={{ width: '100%', height: '400px', background: 'radial-gradient(circle at center, #1a2238 0%, #0a0e17 100%)', borderRadius: '16px', overflow: 'hidden' }}>
+    <div style={{ width: '100%', height: '400px', background: 'radial-gradient(circle at center, #1a2238 0%, #0a0e17 100%)', borderRadius: '16px', overflow: 'hidden', position: 'relative' }}>
       <Canvas camera={{ position: [0, 0, 2.5], fov: 45 }}>
         <React.Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
+          <ambientLight intensity={0.4} />
+          <pointLight position={[10, 10, 10]} intensity={1.5} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} />
           <Globe />
           <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
         </React.Suspense>
